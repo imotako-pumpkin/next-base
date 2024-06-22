@@ -1,0 +1,27 @@
+{
+	"name": "Next.js Base",
+	// docker composeのファイル名
+	"dockerComposeFile": "docker-compose.yml",
+	// アタッチを行うdocker composeのサービス名
+	"service": "main",
+	// workspaceをバインドするディレクトリ
+	"workspaceFolder": "/workspace/app",
+	// node_modulesのディレクトリの所有者をnodeユーザーに変更してからyarnを実行する
+	"postCreateCommand": "sudo chown -R node:node ./node_modules && yarn",
+	// リモートユーザーをnodeユーザーに変更する
+	"remoteUser": "node",
+	// 拡張機能のインストール
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"bradlc.vscode-tailwindcss",
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"eamodio.gitlens",
+				"dbaeumer.vscode-eslint",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"esbenp.prettier-vscode"
+			]
+		}
+	}
+}

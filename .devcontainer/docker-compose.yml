@@ -1,0 +1,15 @@
+volumes:
+  node_modules:
+
+services:
+  main:
+    # Docker imageの指定
+    image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bullseye
+    volumes:
+      # ローカルのワークスペースをコンテナのワークスペースにマウント
+      - ..:/workspace/app
+      # volumeのnode_modulesをコンテナのnode_modulesにマウント
+      - node_modules:/workspace/app/node_modules
+    # ttyとstdin_openをtrueにするのはbuild時を失敗しないため（ないとすぐ閉じちゃう)
+    tty: true
+    stdin_open: true
